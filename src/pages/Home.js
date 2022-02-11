@@ -97,8 +97,12 @@ const Home = ( {movies_} ) => {
         handleGenreString();
     }, [selected])
 
+    // setting movies everytime movies_ changes due to search and sort by feature in header
+    useEffect(() => {
+        setMovies(movies_);
+    }, [movies_])
     return (
-        <div className="home">
+        <div className="home" key={movies_}>
             <div className="genres">
                 {selected.map((genre, index) => {
                     return (
