@@ -1,0 +1,32 @@
+.genres {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 60px;
+    justify-content: center;
+    width: 50%;
+    align-self: center;
+}
+
+.genre {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    border: 2px solid slateblue;
+    border-radius: 20px;
+    cursor: pointer;
+    
+}
+
+    .genre span {
+        padding: 5px;
+        
+    }
+
+.genre.selected {
+    background-color: cornflowerblue;
+}
+
+.genreIcon {
+    padding: 3px;
+    transform: scale(0.9)
+}

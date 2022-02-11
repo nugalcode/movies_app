@@ -1,0 +1,359 @@
+.App {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: var(--myDarkBlue);
+  color: white;
+  
+}
+
+/* Movie */
+:root {
+    /* color variables */
+    --myDarkBlue: darkslateblue;
+    --myRegularBlue: slateblue;
+    --myRed: red;
+    --myOrange: darkorange;
+    --myGreen: lawngreen;
+}
+
+.movie {
+    background-color: var(--myRegularBlue);
+    margin: 20px;
+    border-radius: 3px;
+    box-shadow: 5px 5px 10px rgb(0, 0, 0, 0.1);
+    overflow: hidden;
+    max-width: 300px;
+    position: relative;
+    
+}
+
+.movie img{
+    max-width: 100%;
+}
+.movieList {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: var(--myDarkBlue);
+    justify-content: center;
+}
+
+.titleAndRatingWrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem;
+    font-weight: bold;
+}
+
+.details {
+    display: flex;
+    padding: 1rem 1.5rem 1rem 1.5rem;
+    text-decoration: underline;
+    cursor: pointer;
+}
+.title {
+    display: flex;
+    padding: 1rem;
+    color: white;
+}
+
+.rating {
+    display: flex;
+    margin-right: 10px;
+    padding: 2.5px;
+    background-color: var(--myDarkBlue);
+}
+
+.green {
+    color: var(--myGreen);
+}
+.orange {
+    color: var(--myOrange);
+}
+.red {
+    color: var(--myRed);
+}
+
+/* StickyHeader */
+
+.header {
+    display: flex;
+    position: fixed;
+    top: 0;
+    height: 50px;
+    width: 100%;
+    background-color: var(--myRegularBlue);
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+    z-index: 999;
+}
+
+.sortBy {
+    display: flex;
+    margin-left: 50px;
+    border: solid 2px var(--myDarkBlue);
+    border-radius: 10px;
+    flex-direction: column;
+    width: 110px;
+    /*position: relative;*/
+    color: black;
+    font-weight: bold;
+    
+}
+    .sortBy span {
+         
+    }
+.sortAndIconWrap {
+    display: flex;
+    position: relative;
+    cursor: pointer;
+    margin: auto;
+}
+.sortOptions {
+    display: none;
+    color: white;
+    position: absolute;
+    text-align: center;
+}
+    .sortOptions.open {
+        display: block;   
+    }
+
+.sortOptions ul {
+    list-style-type: none;
+    padding: 5px;
+}
+
+.sortOptions li {
+    
+    padding: 3px 0px 3px 0px;
+    
+}
+
+.sortOptions li:hover {
+    color: lightgrey;
+}
+
+.nav {
+    display: flex;
+
+}
+.nav li {
+    list-style-type: none;
+    padding: 10px;
+    text-decoration-line: none;
+}
+.nav a {
+    text-decoration-line: none;
+}
+.nav a:hover {
+    color: darkturquoise;
+}
+.searchBarWrap {
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+}
+
+.searchBar {
+    height: 20px;
+    border: 2px solid var(--myDarkBlue);
+    border-radius: 10px;
+    background-color: transparent;
+    color: white;
+    padding: 10px;
+    
+}
+
+.searchBar:active, .searchBar:focus {
+    outline: none;
+}
+::placeholder {
+    color: var(--myDarkBlue);
+    
+}
+
+
+.overview {
+    position: absolute;
+    background-color: white;
+    color: black;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1rem;
+    /* creates scroll bar when overview content is large */
+    overflow: auto;
+    max-height: 100%;
+    /*transform: translateY(102%);
+    transition: transform 0.3s ease-in-out;*/
+    
+}
+
+/*.movieImg:hover .overview {
+    transform: translateY(0%);
+}*/
+
+/* TESTING DROPDOWN */
+
+.dropTest {
+    border: 5px solid var(--myDarkBlue);
+   
+}
+
+.itemsWrapper {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.item {
+    display: flex;
+    padding-left: 5px;
+    padding-right: 5px;
+    position: relative;
+    width:100%;
+    text-align: center;
+    
+}
+
+.dropDown {
+    display: flex;
+    flex-direction: column;
+    position:absolute;
+    list-style-type: none;
+    padding-left: 0;
+    background-color: black;
+    margin-top: 20px;
+}
+
+.item:hover {
+    background-color: black;
+}
+.dropDown li {
+    padding: 5px;
+}
+
+/* modal */
+.modal {
+    position: fixed;
+    top:0;
+    bottom: 0;
+    right:0;
+    left: 0;
+    z-index: 9999;
+    background-color: rgb(255, 255, 255, 0.75)
+}
+
+.contentWrap {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    
+}
+
+.imgWrap {
+    display: flex;
+
+}
+
+.genresModalWrap {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.genresModal {
+    padding: 0 0.5rem 0 0.5rem;
+}
+
+.movieModalWrap {
+    display: flex;
+    justify-content: center;
+    background-color: var(--myDarkBlue);
+    margin: 50px;
+    border-radius: 20px;
+    max-width: 50%;
+    max-height: 700px;
+    overflow: auto;
+    flex-shrink: 1;
+}
+
+.overviewModal {
+    display: flex;
+    overflow: auto;
+    padding: 1rem;
+    color: white;
+    background-color: var(--myDarkBlue);
+    max-width: 30%;
+    flex-direction: column;
+    flex-shrink: 1;
+}
+
+.dateWrap {
+    display: flex;
+    padding: 0.5rem;
+    align-items: center;
+    justify-content: space-between;
+    
+}
+
+.movieModal {
+   
+    background-color: var(--myRegularBlue);
+    border-radius: 3px;
+    box-shadow: 5px 5px 10px rgb(0, 0, 0, 0.1);
+    overflow: hidden;
+    max-width: 300px;
+    max-height: 700px;
+    margin: 20px;
+}
+
+.modalClose {
+    top: 0;
+    right: 0;
+    padding-top: 10px;
+    padding-right: 10px;
+}
+
+.releaseDate {
+    padding: 0.5rem 1rem 1rem 1rem;
+}
+
+.trailerWrap {
+    display: flex;
+}
+.trailerLink {
+    padding: 0.5rem 1rem 1rem 1rem;
+}
+
+.trailerLink:focus,:active,:visited {
+    color: white;
+}
+
+.trailerLink:hover {
+    color: lightseagreen;
+}
+
+.openInNew {
+    
+    padding-left: 0.5rem;
+    transform: scale(.8)
+}
+
+.openInFull {
+    transform: scale(.8)
+}
+
+.home {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--myDarkBlue);
+    color: white;
+    width: inherit;
+}
+
+
