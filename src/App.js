@@ -1,16 +1,10 @@
 import './App.css';
 import './css/Genres.css';
 import React, { useState, useEffect, useRef } from 'react';
-import Movie from './components/Movie';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
-import { GENRES_LIST } from './components/GenresList';
-import AddIcon from '@mui/icons-material/Add';
-import ClearIcon from '@mui/icons-material/Clear';
-import { Routes, Route, useLocation, Link } from 'react-router-dom'
+import { Routes, Route, Link } from 'react-router-dom'
 import Favorites from './pages/Favorites'
 import Home from './pages/Home'
-
-const genres_list = GENRES_LIST;
 
 const API_POPULAR = "https://api.themoviedb.org/3/movie/popular?api_key=4bca7efadb757706ddd4616b4bf154d9&language=en-US&page=1";
 const API_SIMILAR = "https://api.themoviedb.org/3/movie/634649/similar?api_key=4bca7efadb757706ddd4616b4bf154d9&language=en-US&page=1"
@@ -18,17 +12,11 @@ const API_SEARCH_MOVIE = "https://api.themoviedb.org/3/search/movie?api_key=4bca
 const API_LATEST = "https://api.themoviedb.org/3/movie/latest?api_key=4bca7efadb757706ddd4616b4bf154d9";
 const API_TOP_RATED = "https://api.themoviedb.org/3/movie/top_rated?api_key=4bca7efadb757706ddd4616b4bf154d9&language=en-US&page=1";
 const API_NOW_PLAYING = "https://api.themoviedb.org/3/movie/now_playing?api_key=4bca7efadb757706ddd4616b4bf154d9&language=en-US&page=1";
-const API_GET_GENRES_LIST = "https://api.themoviedb.org/3/genre/movie/list?api_key=4bca7efadb757706ddd4616b4bf154d9&language=en-US"
-const API_GET_MOVIE_BY_GENRE = "https://api.themoviedb.org/3/discover/movie?api_key=4bca7efadb757706ddd4616b4bf154d9&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres="
-
 
 function App() {
 
     const [movies, setMovies] = useState([]);
     const [dropDownOpen, setDropDownOpen] = useState(false);
-    const [genresString, setGenresString] = useState("");
-    const [selected, setSelected] = useState([]);
-    const [notSelected, setNotSelected] = useState(genres_list);
 
     const handleSortPopular = (e) => {
         getMoviesRequest(API_POPULAR);
@@ -72,78 +60,14 @@ function App() {
     const handleOnChange = (e) => {
         setSearchTerm(e.target.value);
     }
-
-    /* Handling genre query */
-    /* Logic Flow: 
-        1) User clicks on a Genre -> onClick is fired 
-        2) calls either removeSelected or addSelected depending on what genre is clicked
-        3) function updates selected and notSelected array state
-        4) updating selected fires useEffect -> handleGenreString is called
-        5) handleGenreString updates genresString state
-        6) updating genresString activates another useEffect -> getMoviesRequest is called
-        7) Movies display is updated according to genres selected
-     */
-
-    // when a selected genre is clicked
-    const removeSelected = (genre_id, genre_name) => {
-        // remove genre from selected array state
-        var newList = [];
-        newList = selected.filter((element) => element.id != genre_id);
-        setSelected(newList);
-
-        // add genre into notSelected array state
-        var tempList = [];
-        var newGenre = {};
-        newGenre.id = genre_id;
-        newGenre.name = genre_name;
-        tempList = notSelected.concat(newGenre);
-        setNotSelected(tempList);
-    }
-
-    // when a not selected genre is clicked
-    const addSelected = (genre_id, genre_name) => {
-        // add genre into selected array state
-        var newList = [];
-        var newGenre = {};
-        newGenre.id = genre_id;
-        newGenre.name = genre_name;
-        newList = selected.concat(newGenre);
-        setSelected(newList);
-
-        // remove genre from notSelected array state
-        var tempList = [];
-        tempList = notSelected.filter((element) => element.id != genre_id);
-        setNotSelected(tempList);
-    }
-
-    const handleGenreString = () => {
-        var tempString = "";
-        var tempList = selected;
-
-        tempList.map((genre, index) => {
-            if (tempString.length != 0) {
-                tempString = tempString + "," + genre.id;
-            }
-            else {
-                tempString = genre.id;
-            }
-        })
-        setGenresString(tempString);
-    }
-
-    useEffect(() => {
-        getMoviesRequest(API_GET_MOVIE_BY_GENRE + genresString)
-    }, [genresString]);
-    useEffect(() => {
-        handleGenreString();
-    }, [selected])
+  
     useEffect(() => {
         getMoviesRequest(API_TOP_RATED)
     }, []);
+
     return (
         <div className="App">
 
-       
             <div className="header">
                 <div className="sortBy"
                     onMouseEnter={() => setDropDownOpen(true)}
@@ -187,12 +111,6 @@ function App() {
                 <Route path='/' element={<Home movies_={movies} />} />
                 <Route path='/Favorites' element={<Favorites name={"PROPS"} />} />
             </Routes>
-
-           
-
-            
-
-            
 
         </div>
     );
