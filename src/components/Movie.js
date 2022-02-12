@@ -82,6 +82,16 @@ const Movie = ({ title, poster_path, rating, overview, genres, release_date, mov
     const handleContentOnClick = (e) => {
         e.stopPropagation();
     };
+
+    useEffect(() => {
+        if (favorite) {
+            const saved = localStorage.getItem("favoriteMovies");
+            var initVal = saved ? JSON.parse(saved) : [];
+            var val = initVal || [];
+            const valToStore = val.concat([title]);
+            localStorage.setItem("favoriteMovies", JSON.stringify(valToStore));
+        }
+    }, [favorite, title]);
     return (
         <>
             <div className="movie">
