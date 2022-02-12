@@ -43,12 +43,32 @@ const deleteMovieFromArray = (valToDelete, arr) => {
     return result;
 }
 
+const arrIncludesVal = (val, arr) => {
+    if (arr.length === 0) {
+        return false;
+    }
+
+    for (let i = 0; i < arr.length; i++) {
+        var movie = arr[i];
+        if (movie.id === val) {
+            return true;
+        }
+    }
+
+    return false;
+};
+
 const Movie = ({ movie_ }) => {
     const [modalOpen, setModalOpen] = useState(false);
     const [videos, setVideos] = useState([]);
     const [trailerKey, setTrailerKey] = useState("");
     const [trailerFound, setTrailerFound] = useState(false);
-    const [favorite, setFavorite] = useState(false);
+    const [favorite, setFavorite] = useState(() => {
+        const saved = localStorage.getItem("favoriteMovies");
+        const initVal = JSON.parse(saved);
+        const val = initVal || [];
+        return arrIncludesVal(movie_.id, val);
+    });
 
     const getVideos = async (API) => {
         const response = await fetch(API);
@@ -95,14 +115,16 @@ const Movie = ({ movie_ }) => {
     useEffect(() => {
         if (favorite) {
             const saved = localStorage.getItem("favoriteMovies");
-            var initVal = saved ? JSON.parse(saved) : [];
+            var initVal = JSON.parse(saved);
             var val = initVal || [];
-            const valToStore = val.concat([movie_]);
-            localStorage.setItem("favoriteMovies", JSON.stringify(valToStore));
+            if (!arrIncludesVal(movie_.id, val)) {
+                const valToStore = val.concat([movie_]);
+                localStorage.setItem("favoriteMovies", JSON.stringify(valToStore));
+            }
         }
         else {
             const saved = localStorage.getItem("favoriteMovies");
-            var initVal = saved ? JSON.parse(saved) : [];
+            var initVal = JSON.parse(saved);
             var val = initVal || [];
             const valToStore = deleteMovieFromArray(movie_.id, val);
             localStorage.setItem("favoriteMovies", JSON.stringify(valToStore));
