@@ -34,6 +34,15 @@ function getGenreName(id) {
     return name;
 }
 
+const deleteMovieFromArray = (valToDelete, arr) => {
+    if (arr.length === 0) {
+        return [];
+    }
+
+    const result = arr.filter(element => valToDelete !== element.id);
+    return result;
+}
+
 const Movie = ({ movie_ }) => {
     const [modalOpen, setModalOpen] = useState(false);
     const [videos, setVideos] = useState([]);
@@ -88,7 +97,14 @@ const Movie = ({ movie_ }) => {
             const saved = localStorage.getItem("favoriteMovies");
             var initVal = saved ? JSON.parse(saved) : [];
             var val = initVal || [];
-            const valToStore = val.concat([movie_.title]);
+            const valToStore = val.concat([movie_]);
+            localStorage.setItem("favoriteMovies", JSON.stringify(valToStore));
+        }
+        else {
+            const saved = localStorage.getItem("favoriteMovies");
+            var initVal = saved ? JSON.parse(saved) : [];
+            var val = initVal || [];
+            const valToStore = deleteMovieFromArray(movie_.id, val);
             localStorage.setItem("favoriteMovies", JSON.stringify(valToStore));
         }
     }, [favorite, movie_]);
