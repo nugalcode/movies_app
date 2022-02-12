@@ -356,4 +356,16 @@
     width: inherit;
 }
 
+.favoriteIcon {
+    margin: auto;
+}
+
+.favoriteIcon.pink {
+    color: lightpink;
+}
+
+.detailsAndFavWrap {
+    display: flex;
+    justify-content: space-between;
+}
 

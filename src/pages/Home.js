@@ -19,6 +19,11 @@ const Home = ( {movies_} ) => {
     const [genresString, setGenresString] = useState("");
     const [selected, setSelected] = useState([]);
     const [notSelected, setNotSelected] = useState(genres_list);
+    const [favoriteMovies, setFavoriteMovies] = useState(() => {
+        const saved = localStorage.getItem("favoriteMovies");
+        const initVal = JSON.parse(saved);
+        return initVal || [];
+    });
 
     // function to fetch the movies using passed in API param, sets the movies state
     const getMoviesRequest = async (API) => {

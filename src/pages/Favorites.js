@@ -1,12 +1,24 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import '../App.css'
 
-const Favorites = ( { name } ) => {
+/**
+ *  Favorites Page
+ *  - Movies are added to this page via the home page
+ *  - 
+ */
+const Favorites = ( { moviesFromHome } ) => {
 
+    const [movies, setMovies] = useState([moviesFromHome])
+
+
+
+    useEffect(() => {
+
+    }, [moviesFromHome] )
 
     return (
         <div className="favorites">
-            { name }
+            
         </div>
     );
 }

@@ -2,6 +2,7 @@ import React, { useState, useEffect, useCallback }  from 'react';
 import ClearIcon from '@mui/icons-material/Clear';
 import OpenInFullIcon from '@mui/icons-material/OpenInFull';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
+import FavoriteIcon from '@mui/icons-material/Favorite';
 import { GENRES_LIST } from './GenresList';
 
 const API_POSTER = "https://image.tmdb.org/t/p/w300"
@@ -38,6 +39,8 @@ const Movie = ({ title, poster_path, rating, overview, genres, release_date, mov
     const [videos, setVideos] = useState([]);
     const [trailerKey, setTrailerKey] = useState("");
     const [trailerFound, setTrailerFound] = useState(false);
+    const [favorite, setFavorite] = useState(false);
+
     const getVideos = async (API) => {
         const response = await fetch(API);
         const responseJson = await response.json();
@@ -88,9 +91,14 @@ const Movie = ({ title, poster_path, rating, overview, genres, release_date, mov
                     
                     <div className={returnVoteClass(rating)}> {rating} </div>
                 </div>
-                <div className="details" onClick={() => setModalOpen(true)}>
-                    details
-                    <OpenInFullIcon className="openInFull"/>
+                <div className="detailsAndFavWrap">
+                    <div className="details" onClick={() => setModalOpen(true)}>
+                        details
+                        <OpenInFullIcon className="openInFull" />
+                    </div>
+                    <FavoriteIcon
+                        className={favorite ? "favoriteIcon pink" : "favoriteIcon"}
+                            onClick={() => setFavorite(!favorite)} />
                 </div>
             </div>
 
