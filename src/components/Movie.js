@@ -34,7 +34,7 @@ function getGenreName(id) {
     return name;
 }
 
-const Movie = ({ title, poster_path, rating, overview, genres, release_date, movie_id }) => {
+const Movie = ({ movie_ }) => {
     const [modalOpen, setModalOpen] = useState(false);
     const [videos, setVideos] = useState([]);
     const [trailerKey, setTrailerKey] = useState("");
@@ -69,9 +69,9 @@ const Movie = ({ title, poster_path, rating, overview, genres, release_date, mov
     )
     // only runs on initial render due to empty array argument
     useEffect(() => {
-        getVideos(API_MOVIE_VIDEOS_1 + movie_id + API_MOVIE_VIDEOS_2);
+        getVideos(API_MOVIE_VIDEOS_1 + movie_.id + API_MOVIE_VIDEOS_2);
         
-    }, [movie_id]);
+    }, [movie_]);
 
     //runs once videos is changed i.e. after useEffect on init render
     useEffect(() => {
@@ -88,18 +88,18 @@ const Movie = ({ title, poster_path, rating, overview, genres, release_date, mov
             const saved = localStorage.getItem("favoriteMovies");
             var initVal = saved ? JSON.parse(saved) : [];
             var val = initVal || [];
-            const valToStore = val.concat([title]);
+            const valToStore = val.concat([movie_.title]);
             localStorage.setItem("favoriteMovies", JSON.stringify(valToStore));
         }
-    }, [favorite, title]);
+    }, [favorite, movie_]);
     return (
         <>
             <div className="movie">
-                <img src={ API_POSTER + poster_path} alt="movie_pic" />
+                <img src={ API_POSTER + movie_.poster_path} alt="movie_pic" />
                 <div className="titleAndRatingWrap">
-                    <div className="title"> {title} </div>
+                    <div className="title"> {movie_.title} </div>
                     
-                    <div className={returnVoteClass(rating)}> {rating} </div>
+                    <div className={returnVoteClass(movie_.vote_average)}> {movie_.vote_average} </div>
                 </div>
                 <div className="detailsAndFavWrap">
                     <div className="details" onClick={() => setModalOpen(true)}>
@@ -118,14 +118,14 @@ const Movie = ({ title, poster_path, rating, overview, genres, release_date, mov
                     <div className="contentWrap" onClick={(e) => handleContentOnClick(e)}>
                         <div className="movieModalWrap">
                             <div className="movieModal">
-                                <img src={API_POSTER + poster_path} alt="movie_pic" />
+                                <img src={API_POSTER + movie_.poster_path} alt="movie_pic" />
                                 <div className="titleAndRatingWrap">
-                                    <div className="title"> {title} </div>
+                                    <div className="title"> {movie_.title} </div>
 
-                                    <div className={returnVoteClass(rating)}> {rating} </div>
+                                    <div className={returnVoteClass(movie_.vote_average)}> {movie_.vote_average} </div>
                                 </div>
                             <div className="dateWrap">
-                                <div className="releaseDate"> Release: {release_date} </div>
+                                <div className="releaseDate"> Release: {movie_.release_date} </div>
                                 <div className="trailerWrap">
                                     {trailerFound ?
                                         <a
@@ -146,7 +146,7 @@ const Movie = ({ title, poster_path, rating, overview, genres, release_date, mov
                             </div>
                             <div className="overviewModal">
                                 <div className="genresModalWrap">
-                                    {genres.map((genre, index) => {
+                                    {movie_.genre_ids.map((genre, index) => {
                                         return (
                                             <div
                                                 className="genresModal"
@@ -157,7 +157,7 @@ const Movie = ({ title, poster_path, rating, overview, genres, release_date, mov
                                     })}
                                 </div>
                                 <h2> Overview </h2>
-                                <p> {overview} </p>
+                                <p> {movie_.overview} </p>
                             </div>
                             <ClearIcon className="modalClose" onClick={() => setModalOpen(false)} />
                         </div>

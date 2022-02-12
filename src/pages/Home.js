@@ -137,13 +137,7 @@ const Home = ( {movies_} ) => {
                     return (
                         <Movie
                             key={index}
-                            poster_path={movie.poster_path}
-                            title={movie.original_title}
-                            rating={movie.vote_average}
-                            overview={movie.overview}
-                            genres={movie.genre_ids}
-                            release_date={movie.release_date}
-                            movie_id={movie.id}
+                            movie_={movie}
                         />
                     );
                 })}
