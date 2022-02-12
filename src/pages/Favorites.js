@@ -7,13 +7,27 @@ import '../App.css'
  *  - Movies are added to this page via the home page
  *  - 
  */
+
+const getLocalStorageArr = () => {
+    const saved = localStorage.getItem("favoriteMovies");
+    var initVal = saved ? JSON.parse(saved) : [];
+    return initVal || [];
+}
 const Favorites = () => {
 
     const [movies, setMovies] = useState(() => {
-        const saved = localStorage.getItem("favoriteMovies");
-        var initVal = saved ? JSON.parse(saved) : [];
-        return initVal || [];
+        return getLocalStorageArr();
     })
+    useEffect(() => {
+        function setNewFavs() {
+            setMovies(getLocalStorageArr());
+        }
+
+        window.addEventListener('storage', setNewFavs);
+        return () => {
+            window.removeEventListener('storage', setNewFavs);
+        }
+    },[setMovies, movies])
 
     return (
         <div className="favorites">
