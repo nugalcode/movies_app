@@ -110,7 +110,7 @@ function App() {
 
             <Routes>
                 <Route path='/' element={<Home movies_={movies} />} />
-                <Route path='/Favorites' element={<Favorites name={"PROPS"} />} />
+                <Route path='/Favorites' element={<Favorites />} />
             </Routes>
 
         </div>
