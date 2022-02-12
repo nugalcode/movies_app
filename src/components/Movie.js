@@ -38,7 +38,6 @@ const deleteMovieFromArray = (valToDelete, arr) => {
     if (arr.length === 0) {
         return [];
     }
-
     const result = arr.filter(element => valToDelete !== element.id);
     return result;
 }
@@ -47,18 +46,17 @@ const arrIncludesVal = (val, arr) => {
     if (arr.length === 0) {
         return false;
     }
-
     for (let i = 0; i < arr.length; i++) {
         var movie = arr[i];
         if (movie.id === val) {
             return true;
         }
     }
-
     return false;
 };
 
 const Movie = ({ movie_ }) => {
+
     const [modalOpen, setModalOpen] = useState(false);
     const [videos, setVideos] = useState([]);
     const [trailerKey, setTrailerKey] = useState("");
@@ -96,12 +94,11 @@ const Movie = ({ movie_ }) => {
     },
         [setTrailerKey, setTrailerFound, videos]
     )
-    // only runs on initial render due to empty array argument
+    
     useEffect(() => {
         getVideos(API_MOVIE_VIDEOS_1 + movie_.id + API_MOVIE_VIDEOS_2);
         
     }, [movie_]);
-
     //runs once videos is changed i.e. after useEffect on init render
     useEffect(() => {
         findTrailerKey();
