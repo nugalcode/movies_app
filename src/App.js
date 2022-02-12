@@ -17,6 +17,7 @@ function App() {
 
     const [movies, setMovies] = useState([]);
     const [dropDownOpen, setDropDownOpen] = useState(false);
+    const [searchTerm, setSearchTerm] = useState("");
 
     const handleSortPopular = (e) => {
         getMoviesRequest(API_POPULAR);
@@ -45,7 +46,6 @@ function App() {
     }
 
     /* handling user search input */
-    const [searchTerm, setSearchTerm] = useState("");
     const handleOnSubmit = (e) => {
         //prevents page reload
         e.preventDefault();
@@ -60,9 +60,10 @@ function App() {
     const handleOnChange = (e) => {
         setSearchTerm(e.target.value);
     }
-  
+
+    // on initial render
     useEffect(() => {
-        getMoviesRequest(API_TOP_RATED)
+        getMoviesRequest(API_POPULAR)
     }, []);
 
     return (
