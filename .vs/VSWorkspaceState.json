@@ -5,6 +5,7 @@
     "\\src",
     "\\src\\components",
     "\\src\\css",
+    "\\src\\hooks",
     "\\src\\pages"
   ],
   "SelectedNode": "\\src\\pages\\Home.js",
