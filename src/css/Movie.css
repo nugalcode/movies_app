@@ -60,7 +60,7 @@
 }
 
 .favoriteIcon {
-    padding: 1rem;
+    padding: 1rem 1.2rem 1rem 1rem;
     cursor: pointer;
     position: absolute;
     bottom: 0;
@@ -86,7 +86,7 @@
 }
 
 .openInFull {
-    padding: 1rem;
+    padding: 1rem 1rem 1rem 1.2rem;
     transform: scale(.8);
     position: absolute;
     bottom: 0;
