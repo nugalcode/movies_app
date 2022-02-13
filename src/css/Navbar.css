@@ -1,0 +1,17 @@
+.nav {
+    display: flex;
+}
+
+    .nav li {
+        list-style-type: none;
+        padding: 10px;
+        text-decoration-line: none;
+    }
+
+    .nav a {
+        text-decoration-line: none;
+    }
+
+        .nav a:hover {
+            color: darkturquoise;
+        }

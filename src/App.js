@@ -2,9 +2,10 @@ import './App.css';
 import './css/Genres.css';
 import React, { useState, useEffect, useRef } from 'react';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
-import { Routes, Route, Link } from 'react-router-dom'
-import Favorites from './pages/Favorites'
-import Home from './pages/Home'
+import { Routes, Route, Link } from 'react-router-dom';
+import Favorites from './pages/Favorites';
+import Home from './pages/Home';
+import Navbar from './components/Navbar.js';
 
 const API_POPULAR = "https://api.themoviedb.org/3/movie/popular?api_key=4bca7efadb757706ddd4616b4bf154d9&language=en-US&page=1";
 const API_SIMILAR = "https://api.themoviedb.org/3/movie/634649/similar?api_key=4bca7efadb757706ddd4616b4bf154d9&language=en-US&page=1"
@@ -86,14 +87,7 @@ function App() {
                     </div>
                 </div>
 
-                <div className="nav">
-                    <li>
-                        <Link to="/"> Home </Link>
-                    </li>
-                    <li>
-                        <Link to="/Favorites"> Favorites </Link>
-                    </li>
-                </div>
+                <Navbar />
 
                 <div className="searchBarWrap">
                     <form onSubmit={handleOnSubmit}>
