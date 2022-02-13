@@ -63,6 +63,12 @@
     margin: auto;
     cursor: pointer;
 }
+    .favoriteIcon:hover {
+        transform: scale(1.3);
+    }
+    .favoriteIcon:active {
+        transform: scale(0.8);
+    }
 
     .favoriteIcon.pink {
         color: lightpink;
