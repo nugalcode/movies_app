@@ -61,6 +61,7 @@
 
 .favoriteIcon {
     margin: auto;
+    cursor: pointer;
 }
 
     .favoriteIcon.pink {

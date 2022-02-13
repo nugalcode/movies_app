@@ -139,7 +139,6 @@ const Movie = ({ movie_ }) => {
                 </div>
                 <div className="detailsAndFavWrap">
                     <div className="details" onClick={() => setModalOpen(true)}>
-                        details
                         <OpenInFullIcon className="openInFull" />
                     </div>
                     <FavoriteIcon
