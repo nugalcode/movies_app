@@ -3,6 +3,7 @@ import ClearIcon from '@mui/icons-material/Clear';
 import OpenInFullIcon from '@mui/icons-material/OpenInFull';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import FavoriteIcon from '@mui/icons-material/Favorite';
+import '../css/Movie.css'
 import { GENRES_LIST } from './GenresList';
 
 const API_POSTER = "https://image.tmdb.org/t/p/w300"
