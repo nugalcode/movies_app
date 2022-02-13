@@ -136,21 +136,6 @@
     color: lightgrey;
 }
 
-.nav {
-    display: flex;
-
-}
-.nav li {
-    list-style-type: none;
-    padding: 10px;
-    text-decoration-line: none;
-}
-.nav a {
-    text-decoration-line: none;
-}
-.nav a:hover {
-    color: darkturquoise;
-}
 .searchBarWrap {
     display: flex;
     justify-content: center;
@@ -187,14 +172,8 @@
     /* creates scroll bar when overview content is large */
     overflow: auto;
     max-height: 100%;
-    /*transform: translateY(102%);
-    transition: transform 0.3s ease-in-out;*/
     
 }
-
-/*.movieImg:hover .overview {
-    transform: translateY(0%);
-}*/
 
 /* TESTING DROPDOWN */
 
