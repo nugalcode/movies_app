@@ -8,6 +8,7 @@
 2) Get movies by Most Popular, Top Rated, Now Playing
 3) Search movies by any combination of genres
 4) Links to YouTube trailer (if a trailer exists)
+5) Add movies to the Favorites page
 
 ### Tools and Technologies used:
 1) JavaScript
@@ -31,5 +32,6 @@
 ### Other:
 1) Flexbox
 2) APIs
+3) localStorage
 
 API KEY: 4bca7efadb757706ddd4616b4bf154d9
