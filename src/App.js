@@ -63,9 +63,9 @@ function App() {
     }
 
     // on initial render
-    useEffect(() => {
+    /*useEffect(() => {
         getMoviesRequest(API_POPULAR)
-    }, []);
+    }, []);*/
 
     return (
         <div className="App">

@@ -1,0 +1,13 @@
+.favoritesClearIcon {
+
+}
+
+.favoritesClearIcon:hover {
+    color: red;
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+.favoritesClearIcon:active {
+    transform: scale(0.8);
+}

@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Movie from '../components/Movie';
-import '../App.css';
-import { useLocalStorage } from '../hooks/useLocalStorage';
+import '../css/Favorites.css';
 import ClearIcon from '@mui/icons-material/Clear';
 /**
  *  Favorites Page
@@ -46,7 +45,11 @@ const Favorites = () => {
                                 key={index}
                                 movie_={movie}
                                 />
-                            <ClearIcon key={movie.id} onClick={() => handleOnClick(movie.id)}/>
+                            <ClearIcon
+                                className="favoritesClearIcon"
+                                key={movie.id}
+                                onClick={() => handleOnClick(movie.id)}
+                                />
                         </>
                     );
                 })}
