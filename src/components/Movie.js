@@ -78,8 +78,6 @@ const Movie = ({ movie_ }) => {
         else {
             setVideos([responseJson]);
         }
-        //console.log(videos);
-        //console.log(API_MOVIE_VIDEOS_1 + movie_id + API_MOVIE_VIDEOS_2);
     }
     const findTrailerKey = useCallback(() => {
         var tempKey = "";
