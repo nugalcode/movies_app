@@ -14,12 +14,20 @@
     border: 2px solid slateblue;
     border-radius: 20px;
     cursor: pointer;
-    
+    margin: 2px;
 }
-
+    .genre:hover {
+        
+    }
+    .genre:hover .genreIcon {
+        transform: scale(1.2);
+    }
     .genre span {
         padding: 5px;
         
+    }
+    .genre:hover span{
+        font-weight: bold;
     }
 
 .genre.selected {
