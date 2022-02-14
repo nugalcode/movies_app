@@ -98,12 +98,27 @@ const Movie = ({ movie_ }) => {
     
     useEffect(() => {
         getVideos(API_MOVIE_VIDEOS_1 + movie_.id + API_MOVIE_VIDEOS_2);
-        
     }, [movie_]);
     //runs once videos is changed i.e. after useEffect on init render
     useEffect(() => {
         findTrailerKey();
     }, [videos, findTrailerKey])
+
+    
+    useEffect(() => {
+        const initFavorite = () => {
+            const saved = localStorage.getItem("favoriteMovies");
+            var initVal = JSON.parse(saved);
+            var val = initVal || [];
+            if (arrIncludesVal(movie_.id, val)) {
+                setFavorite(true);
+            }
+            else {
+                setFavorite(false);
+            }
+        }
+        initFavorite();
+    }, [movie_]);
 
     /* prevents Modal from closing when clicking on the content */
     const handleContentOnClick = (e) => {
