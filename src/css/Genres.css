@@ -12,11 +12,12 @@
     align-items: center;
     padding: 5px;
     border: 2px solid slateblue;
+    box-shadow: 5px 5px 10px rgb(0, 0, 0, 0.4);
     border-radius: 20px;
     cursor: pointer;
     margin: 2px;
     position: relative;
-    
+    letter-spacing: 1px;
 }
 
 .genreInner {
@@ -24,6 +25,7 @@
     align-items: center;
     padding: 5px;
     outline: 3px solid darkturquoise;
+    box-shadow: 5px 5px 10px rgb(0, 0, 0, 0.4);
     left: 0;
     bottom: 0;
     top: 0;
