@@ -17,7 +17,7 @@
     cursor: pointer;
     margin: 2px;
     position: relative;
-    
+    text-shadow: 3px 3px 5px rgb(0, 0, 0, 0.6);
 }
 
 .genreInner {
