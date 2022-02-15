@@ -142,11 +142,3 @@
 .dropDown li {
     padding: 5px;
 }
-
-.home {
-    display: flex;
-    flex-direction: column;
-    background-color: var(--myDarkBlue);
-    color: white;
-    width: inherit;
-}

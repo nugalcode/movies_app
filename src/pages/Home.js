@@ -1,5 +1,5 @@
-import '../App.css';
 import '../css/Genres.css';
+import '../css/Home.css';
 import React, { useState, useEffect, useRef } from 'react';
 import Movie from '../components/Movie';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';

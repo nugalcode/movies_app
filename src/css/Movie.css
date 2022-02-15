@@ -17,6 +17,7 @@
     flex-wrap: wrap;
     background-color: var(--myDarkBlue);
     justify-content: center;
+    margin-top: 10px;
 }
 
 .titleAndRatingWrap {
