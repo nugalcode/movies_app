@@ -4,7 +4,7 @@
   height: 100vh;
   background-color: var(--myDarkBlue);
   color: white;
-  
+  letter-spacing: 1px;
 }
 
 /* Movie */
