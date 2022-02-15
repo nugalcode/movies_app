@@ -1,10 +1,11 @@
 .App {
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-  background-color: var(--myDarkBlue);
-  color: white;
-  letter-spacing: 1px;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background-color: var(--myDarkBlue);
+    color: white;
+    letter-spacing: 1px;
+    text-shadow: 5px 5px 10px rgb(0, 0, 0, 0.7);
 }
 
 /* Movie */
