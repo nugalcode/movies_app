@@ -114,6 +114,10 @@ const Home = ( {movies_} ) => {
                         >
                             <span> {genre.name} </span>
                             <ClearIcon className="genreIcon" />
+                            <div className="genreInner selected">
+                                <span> {genre.name} </span>
+                                <ClearIcon className="genreIcon" />
+                            </div>
                         </div>
                     )
                 })}
@@ -127,6 +131,10 @@ const Home = ( {movies_} ) => {
                         >
                             <span> {genre.name} </span>
                             <AddIcon className="genreIcon" />
+                            <div className="genreInner">
+                                <span> {genre.name} </span>
+                                <AddIcon className="genreIcon" />
+                            </div>
                         </div>
                     )
                 })}
