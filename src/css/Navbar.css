@@ -15,3 +15,12 @@
         .nav a:hover {
             color: darkturquoise;
         }
+
+.navLink {
+    color: white;
+}
+
+.navLink.currPage {
+    color: darkturquoise;
+}
+
