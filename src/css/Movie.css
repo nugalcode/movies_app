@@ -188,6 +188,12 @@
     right: 0;
     padding-top: 10px;
     padding-right: 10px;
+    cursor: pointer;
+}
+
+.modalClose:hover {
+    color: red;
+    transform: scale(1.2);
 }
 
 .releaseDate {
