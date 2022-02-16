@@ -16,6 +16,7 @@
     --myRed: red;
     --myOrange: darkorange;
     --myGreen: lawngreen;
+    --myTurquoise: darkturquoise;
 }
 
 /* StickyHeader */
@@ -27,15 +28,15 @@
     height: 70px;
     width: 100%;
     background-color: var(--myRegularBlue);
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
     align-content: center;
     z-index: 999;
+    font-size: 1.1rem;
 }
 
 .sortBy {
     display: flex;
-    margin-left: 50px;
     border: solid 2px var(--myDarkBlue);
     border-radius: 10px;
     flex-direction: column;
@@ -43,10 +44,10 @@
     /*position: relative;*/
     color: black;
     font-weight: bold;
-    
+    height: 40px;
 }
-    .sortBy span {
-         
+    .sortBy:hover {
+         border-color: var(--myTurquoise)
     }
 .sortAndIconWrap {
     display: flex;
@@ -66,17 +67,16 @@
 
 .sortOptions ul {
     list-style-type: none;
-    padding: 5px;
+    padding: 15px;
 }
 
 .sortOptions li {
-    
-    padding: 3px 0px 3px 0px;
-    
+    padding: 5px;
+    border-bottom: 1px solid black;
 }
 
 .sortOptions li:hover {
-    color: lightgrey;
+    color: var(--myTurquoise);
 }
 
 .searchBarWrap {
@@ -86,17 +86,18 @@
 }
 
 .searchBar {
-    height: 20px;
+    height: 40px;
     border: 2px solid var(--myDarkBlue);
     border-radius: 10px;
     background-color: transparent;
     color: white;
     padding: 10px;
-    
+    font-size: 1.1rem;
 }
 
 .searchBar:active, .searchBar:focus {
     outline: none;
+    border-color: var(--myTurquoise);
 }
 ::placeholder {
     color: var(--myDarkBlue);
