@@ -208,21 +208,21 @@ const Movie = ({ movie_ }) => {
                                 
                             
                             </div>
-                            <div className="overviewModal">
-                                <div className="genresModalWrap">
-                                    {movie_.genre_ids.map((genre, index) => {
-                                        return (
-                                            <div
-                                                className="genresModal"
-                                                key={index}>
-                                                {getGenreName(genre)}
-                                            </div>
-                                        );
-                                    })}
-                                </div>
-                                <h2> Overview </h2>
-                                <p> {movie_.overview} </p>
+                        <div className="overviewModal">
+                            <h2> Overview </h2>
+                            <p> {movie_.overview} </p>
+                            <div className="genresModalWrap">
+                                {movie_.genre_ids.map((genre, index) => {
+                                    return (
+                                        <div
+                                            className="genresModal"
+                                            key={index}>
+                                            {getGenreName(genre)}
+                                        </div>
+                                    );
+                                })}
                             </div>
+                        </div>
                             <ClearIcon className="modalClose" onClick={() => setModalOpen(false)} />
                         </div>
                     </div>

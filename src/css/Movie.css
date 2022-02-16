@@ -140,10 +140,11 @@
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    margin-top: 20px;
 }
 
 .genresModal {
-    padding: 0 0.5rem 0 0.5rem;
+    padding: 0.5rem;
 }
 
 .movieModalWrap {
@@ -158,13 +159,16 @@
 
 .overviewModal {
     display: flex;
-    overflow: auto;
     padding: 1rem;
     color: white;
     background-color: var(--myDarkBlue);
     max-width: 30%;
     flex-direction: column;
     flex-shrink: 1;
+}
+
+.overviewModal p {
+    overflow: auto;
 }
 
 .dateWrap {
