@@ -123,6 +123,20 @@ const Movie = ({ movie_ }) => {
         e.stopPropagation();
     };
 
+    /* close modal on Esc key press */
+    const keyPress = useCallback(e => {
+        if (e.key === 'Escape' && modalOpen) {
+            setModalOpen(false);
+        }
+    },
+        [setModalOpen, modalOpen]
+    );
+
+    useEffect(() => {
+        document.addEventListener('keydown', keyPress);
+        return () => document.removeEventListener('keydown', keyPress)
+    });
+
     useEffect(() => {
         if (favorite) {
             const saved = localStorage.getItem("favoriteMovies");
@@ -141,6 +155,8 @@ const Movie = ({ movie_ }) => {
             localStorage.setItem("favoriteMovies", JSON.stringify(valToStore));
         }
     }, [favorite, movie_]);
+
+
     return (
         <>
             <div className="movie">
