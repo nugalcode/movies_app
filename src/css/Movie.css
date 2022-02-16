@@ -152,7 +152,7 @@
     background-color: var(--myDarkBlue);
     border-radius: 20px;
     max-height: 700px;
-    overflow: auto;
+    overflow: hidden;
     flex-shrink: 1;
 }
 
