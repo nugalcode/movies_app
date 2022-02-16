@@ -8,7 +8,6 @@
     
 }
 
-/* Movie */
 :root {
     /* color variables */
     --myDarkBlue: darkslateblue;
@@ -20,7 +19,6 @@
 }
 
 /* StickyHeader */
-
 .header {
     display: flex;
     position: fixed;
@@ -41,7 +39,6 @@
     border-radius: 10px;
     flex-direction: column;
     width: 110px;
-    /*position: relative;*/
     color: black;
     font-weight: bold;
     height: 40px;
@@ -49,12 +46,14 @@
     .sortBy:hover {
          border-color: var(--myTurquoise)
     }
+
 .sortAndIconWrap {
     display: flex;
     position: relative;
     cursor: pointer;
     margin: auto;
 }
+
 .sortOptions {
     display: none;
     color: white;
@@ -75,9 +74,9 @@
     border-bottom: 1px solid black;
 }
 
-.sortOptions li:hover {
-    color: var(--myTurquoise);
-}
+    .sortOptions li:hover {
+        color: var(--myTurquoise);
+    }
 
 .searchBarWrap {
     display: flex;
