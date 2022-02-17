@@ -33,5 +33,3 @@
 1) Flexbox
 2) APIs
 3) localStorage
-
-API KEY: 4bca7efadb757706ddd4616b4bf154d9

@@ -7,12 +7,14 @@ import Favorites from './pages/Favorites';
 import Home from './pages/Home';
 import Navbar from './components/Navbar.js';
 
-const API_POPULAR = "https://api.themoviedb.org/3/movie/popular?api_key=4bca7efadb757706ddd4616b4bf154d9&language=en-US&page=1";
-const API_SIMILAR = "https://api.themoviedb.org/3/movie/634649/similar?api_key=4bca7efadb757706ddd4616b4bf154d9&language=en-US&page=1"
-const API_SEARCH_MOVIE = "https://api.themoviedb.org/3/search/movie?api_key=4bca7efadb757706ddd4616b4bf154d9&query=";
-const API_LATEST = "https://api.themoviedb.org/3/movie/latest?api_key=4bca7efadb757706ddd4616b4bf154d9";
-const API_TOP_RATED = "https://api.themoviedb.org/3/movie/top_rated?api_key=4bca7efadb757706ddd4616b4bf154d9&language=en-US&page=1";
-const API_NOW_PLAYING = "https://api.themoviedb.org/3/movie/now_playing?api_key=4bca7efadb757706ddd4616b4bf154d9&language=en-US&page=1";
+const API_KEY = process.env.REACT_APP_API_KEY;
+
+const API_POPULAR = `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=en-US&page=1`;
+const API_SIMILAR = `https://api.themoviedb.org/3/movie/634649/similar?api_key=${API_KEY}&language=en-US&page=1`
+const API_SEARCH_MOVIE = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=`;
+const API_LATEST = `https://api.themoviedb.org/3/movie/latest?api_key=${API_KEY}`;
+const API_TOP_RATED = `https://api.themoviedb.org/3/movie/top_rated?api_key=${API_KEY}&language=en-US&page=1`;
+const API_NOW_PLAYING = `https://api.themoviedb.org/3/movie/now_playing?api_key=${API_KEY}&language=en-US&page=1`;
 
 function App() {
 

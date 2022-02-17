@@ -6,9 +6,10 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import '../css/Movie.css'
 import { GENRES_LIST } from './GenresList';
 
+const API_KEY = process.env.REACT_APP_API_KEY;
 const API_POSTER = "https://image.tmdb.org/t/p/w300"
 const API_MOVIE_VIDEOS_1 = "https://api.themoviedb.org/3/movie/"
-const API_MOVIE_VIDEOS_2 =  "/videos?api_key=4bca7efadb757706ddd4616b4bf154d9&language=en-US"
+const API_MOVIE_VIDEOS_2 =  `/videos?api_key=${API_KEY}&language=en-US`
 const genres_list = GENRES_LIST;
 const TRAILER_START = "https://www.youtube.com/watch?v="
 // changing background color of rating

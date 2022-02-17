@@ -8,9 +8,10 @@ import AddIcon from '@mui/icons-material/Add';
 import ClearIcon from '@mui/icons-material/Clear';
 
 const genres_list = GENRES_LIST;
+const API_KEY = process.env.REACT_APP_API_KEY
 
-const API_GET_GENRES_LIST = "https://api.themoviedb.org/3/genre/movie/list?api_key=4bca7efadb757706ddd4616b4bf154d9&language=en-US"
-const API_GET_MOVIE_BY_GENRE = "https://api.themoviedb.org/3/discover/movie?api_key=4bca7efadb757706ddd4616b4bf154d9&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres="
+const API_GET_GENRES_LIST = `https://api.themoviedb.org/3/genre/movie/list?api_key=${API_KEY}&language=en-US`;
+const API_GET_MOVIE_BY_GENRE = `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=`;
 
 
 const Home = ( {movies_} ) => {
