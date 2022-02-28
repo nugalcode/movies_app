@@ -1,12 +1,12 @@
 {
   "ExpandedNodes": [
     "",
-    "\\public",
     "\\src",
     "\\src\\components",
     "\\src\\css",
     "\\src\\hooks",
     "\\src\\pages"
   ],
+  "SelectedNode": "\\src\\css\\Movie.css",
   "PreviewInSolutionExplorer": false
 }
