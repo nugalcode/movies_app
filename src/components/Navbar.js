@@ -2,38 +2,17 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../css/Navbar.css';
 
-const Navbar = () => {
+const Navbar = ( navLocation ) => {
 
-    const [home, setHome] = useState(true);
-    const [favorites, setFavorites] = useState(false);
-
-
-    const handleOnClick = (page) => {
-        if (page === "home") {
-            if (home)
-                return;
-            else {
-                setHome(true)
-                setFavorites(false);
-            }
-        }
-        else {
-            if (favorites)
-                return;
-            else {
-                setFavorites(true);
-                setHome(false);
-            }
-        }
-    }
+    const [currPage, setCurrentPage] = useState(navLocation.navLocation);
 
     return (
         <div className="nav">
             <li>
                 <Link
                     to="/"
-                    className={home ? "navLink currPage" : "navLink"}
-                    onClick={() => handleOnClick("home")}
+                    className={currPage === "/" ? "navLink currPage" : "navLink"}
+                    onClick={() => setCurrentPage("/")}
                 >
                     Home
                 </Link>
@@ -42,8 +21,8 @@ const Navbar = () => {
             <li>
                 <Link
                     to="/Favorites"
-                    className={favorites ? "navLink currPage" : "navLink"}
-                    onClick={() => handleOnClick("favorites")}
+                    className={currPage === "/Favorites" ? "navLink currPage" : "navLink"}
+                    onClick={() => setCurrentPage("/Favorites")}
                 >
                     Favorites
                 </Link>

@@ -24,7 +24,6 @@ function App() {
 
     useEffect(() => {
         setIsHome(location.pathname === "/");
-        console.log("inuseEffect");
     }, [setIsHome, location])
 
     const [movies, setMovies] = useState([]);
@@ -100,7 +99,7 @@ function App() {
                         </div>
                     </div>}
 
-                <Navbar />
+                <Navbar navLocation={location.pathname}/>
 
                 {
                     isHome &&
@@ -120,7 +119,7 @@ function App() {
 
             <Routes>
                 <Route path='/' element={<Home movies_={movies} />} />
-                <Route path='/Favorites' element={<Favorites />} />
+                <Route path='/favorites' element={<Favorites />} />
             </Routes>
 
         </div>
