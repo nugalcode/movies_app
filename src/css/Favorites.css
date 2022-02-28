@@ -16,3 +16,7 @@
 .favoritesClearIcon:active {
     transform: scale(0.8);
 }
+
+.favoriteMovie {
+    display: flex;
+}

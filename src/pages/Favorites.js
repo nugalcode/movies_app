@@ -40,7 +40,7 @@ const Favorites = () => {
             <div className="movieList" >
                 {movies.map((movie, index) => {
                     return (
-                        <>
+                        <div className="favoriteMovie" key={index}>
                             <Movie
                                 key={index}
                                 movie_={movie}
@@ -50,7 +50,7 @@ const Favorites = () => {
                                 key={movie.id}
                                 onClick={() => handleOnClick(movie.id)}
                                 />
-                        </>
+                        </div>
                     );
                 })}
             </div>
