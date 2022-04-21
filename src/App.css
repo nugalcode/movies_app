@@ -83,10 +83,10 @@
 .searchBarWrap {
     display: flex;
     justify-content: center;
-    
 }
 
 .searchBar {
+    display: flex;
     height: 40px;
     border: 2px solid var(--myDarkBlue);
     border-radius: 10px;
@@ -152,4 +152,13 @@
         justify-content: center;
     }
     
+}
+
+@media screen and (max-width: 495px) {
+
+    
+    .searchBar {
+        width: 70%;
+        align-self: flex-end;
+    }
 }
