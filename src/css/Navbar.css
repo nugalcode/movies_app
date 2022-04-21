@@ -41,8 +41,12 @@
         visibility: visible;
     }
 
+    .nav {
+        padding: 0 10px 0 10px;
+    }
+
     .nav li {
-        padding: 5px;
+        padding: 10px;
     }
 }
 

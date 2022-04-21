@@ -145,3 +145,11 @@
 .dropDown li {
     padding: 5px;
 }
+
+@media screen and (max-width: 750px) {
+
+    .header {
+        justify-content: center;
+    }
+    
+}
