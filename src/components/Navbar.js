@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../css/Navbar.css';
 
-const Navbar = ( navLocation ) => {
+const Navbar = ({ navLocation } ) => {
 
-    const [currPage, setCurrentPage] = useState(navLocation.navLocation);
+    const [currPage, setCurrentPage] = useState(navLocation);
 
     return (
         <div className="nav">
