@@ -1,0 +1,22 @@
+#footer {
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 80px;
+    background-color: var(--myRegularBlue);
+    justify-content: flex-start;
+    align-items: center;
+}
+
+#footer div {
+    margin: 20px;
+    
+}
+
+#tmdbWrap {
+}
+
+#tmdbWrap img {
+    width: 50px;
+}

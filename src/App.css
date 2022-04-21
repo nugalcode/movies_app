@@ -1,11 +1,16 @@
+html, body, #root {
+    height: 100vh;
+    margin: 0;
+}
+
 .App {
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    min-height: 100%;
     background-color: var(--myDarkBlue);
     color: white;
     letter-spacing: 1px;
-    
+    position: relative;
 }
 
 :root {

@@ -6,6 +6,7 @@ import { Routes, Route, useLocation } from 'react-router-dom';
 import Favorites from './pages/Favorites';
 import Home from './pages/Home';
 import Navbar from './components/Navbar.js';
+import Footer from './components/Footer.js';
 
 const API_KEY = process.env.REACT_APP_API_KEY;
 
@@ -117,11 +118,12 @@ function App() {
                 }
             </div>
 
+            <Footer />
+
             <Routes>
                 <Route path='/' element={<Home movies_={movies} />} />
                 <Route path='/favorites' element={<Favorites />} />
             </Routes>
-
         </div>
     );
 }
