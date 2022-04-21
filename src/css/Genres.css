@@ -64,3 +64,21 @@
     padding: 3px;
     transform: scale(0.9)
 }
+
+@media screen and (max-width: 1189px) {
+    .genres {
+        width: 60%;
+    }
+}
+
+@media screen and (max-width: 994px) {
+    .genres {
+        width: 80%;
+    }
+}
+@media screen and (max-width: 450px) {
+    .genres {
+        width: 95%;
+    }
+}
+
