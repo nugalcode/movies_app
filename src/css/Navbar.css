@@ -25,3 +25,24 @@
     color: darkturquoise;
 }
 
+.iconLink {
+    position: absolute;
+    visibility: hidden;
+}
+
+@media screen and (max-width: 750px) {
+
+    .textLink {
+        display: none;
+    }
+
+    .iconLink {
+        position: static;
+        visibility: visible;
+    }
+
+    .nav li {
+        padding: 5px;
+    }
+}
+

@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../css/Navbar.css';
+import HomeIcon from '@mui/icons-material/Home';
+import FavoriteIcon from '@mui/icons-material/Favorite';
 
 const Navbar = ({ navLocation } ) => {
 
@@ -14,7 +16,8 @@ const Navbar = ({ navLocation } ) => {
                     className={currPage === "/" ? "navLink currPage" : "navLink"}
                     onClick={() => setCurrentPage("/")}
                 >
-                    Home
+                    <span className="textLink"> Home </span>
+                    <HomeIcon className="iconLink" /> 
                 </Link>
             </li>
 
@@ -24,7 +27,8 @@ const Navbar = ({ navLocation } ) => {
                     className={currPage === "/Favorites" ? "navLink currPage" : "navLink"}
                     onClick={() => setCurrentPage("/Favorites")}
                 >
-                    Favorites
+                    <span className="textLink"> Favorites </span>
+                    <FavoriteIcon className="iconLink" />
                 </Link>
             </li>
         </div>
