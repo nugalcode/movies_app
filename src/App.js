@@ -87,7 +87,7 @@ function App() {
                         onMouseEnter={() => setDropDownOpen(true)}
                         onMouseLeave={() => setDropDownOpen(false)}>
                         <div className="sortAndIconWrap">
-                            <span> Sort By </span>
+                            <span> Sort </span>
                             <ArrowDropDownIcon />
                             <div className={dropDownOpen ? "sortOptions open" : "sortOptions"}>
                                 <ul>

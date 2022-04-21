@@ -161,4 +161,8 @@
         width: 70%;
         align-self: flex-end;
     }
+
+    .sortBy {
+        margin-left: 40px;
+    }
 }
