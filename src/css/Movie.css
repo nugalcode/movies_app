@@ -134,6 +134,8 @@
 
 .imgWrap {
     display: flex;
+    width: 100%;
+    justify-content: center;
 }
 
 .genresModalWrap {
@@ -152,9 +154,7 @@
     justify-content: center;
     background-color: var(--myDarkBlue);
     border-radius: 20px;
-    max-height: 700px;
     overflow: hidden;
-    flex-shrink: 1;
 }
 
 .overviewModal {
@@ -162,9 +162,8 @@
     padding: 1rem;
     color: white;
     background-color: var(--myDarkBlue);
-    max-width: 30%;
+    width: 30%;
     flex-direction: column;
-    flex-shrink: 1;
 }
 
 .overviewModal p {
@@ -179,12 +178,13 @@
 }
 
 .movieModal {
+    display: flex;
+    flex-direction: column;
     background-color: var(--myRegularBlue);
     border-radius: 3px;
     box-shadow: 5px 5px 10px rgb(0, 0, 0, 0.1);
     overflow: hidden;
-    max-width: 300px;
-    max-height: 700px;
+    
     margin: 20px;
 }
 
@@ -226,3 +226,32 @@
     transform: scale(.8)
 }
 
+@media screen and (max-width: 550px) {
+    .movieModalWrap {
+        margin-left: 20px;
+        width: 90%;
+        padding: 20px 0 20px 0;
+    }
+
+    .movieModal {
+        width: 50%;
+    }
+
+    .overviewModal {
+        width: 50%;
+        padding: 0;
+    }
+
+    .movieModal img {
+        width: 100%;
+    }
+  
+}
+
+@media screen and (max-height: 630px) {
+
+    .movieModal img {
+        width: 80%;
+    }
+    
+}

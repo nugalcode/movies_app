@@ -141,8 +141,8 @@ const Movie = ({ movie_ }) => {
     useEffect(() => {
         if (favorite) {
             const saved = localStorage.getItem("favoriteMovies");
-            var initVal = JSON.parse(saved);
-            var val = initVal || [];
+            let initVal = JSON.parse(saved);
+            let val = initVal || [];
             if (!arrIncludesVal(movie_.id, val)) {
                 const valToStore = val.concat([movie_]);
                 localStorage.setItem("favoriteMovies", JSON.stringify(valToStore));
@@ -150,8 +150,8 @@ const Movie = ({ movie_ }) => {
         }
         else {
             const saved = localStorage.getItem("favoriteMovies");
-            var initVal = JSON.parse(saved);
-            var val = initVal || [];
+            let initVal = JSON.parse(saved);
+            let val = initVal || [];
             const valToStore = deleteMovieFromArray(movie_.id, val);
             localStorage.setItem("favoriteMovies", JSON.stringify(valToStore));
         }
@@ -183,47 +183,50 @@ const Movie = ({ movie_ }) => {
                     <div className="contentWrap" onClick={(e) => handleContentOnClick(e)}>
                         <div className="movieModalWrap">
                             <div className="movieModal">
-                                <img src={API_POSTER + movie_.poster_path} alt="movie_pic" />
+                                <div className="imgWrap">
+                                    <img src={API_POSTER + movie_.poster_path} alt="movie_pic" />
+                                </div>
+
                                 <div className="titleAndRatingWrap">
                                     <div className="title"> {movie_.title} </div>
 
                                     <div className={returnVoteClass(movie_.vote_average)}> {movie_.vote_average} </div>
                                 </div>
-                            <div className="dateWrap">
-                                <div className="releaseDate"> Release: {movie_.release_date} </div>
-                                <div className="trailerWrap">
-                                    {trailerFound ?
-                                        <a
-                                        className="trailerLink"
-                                        href={TRAILER_START + trailerKey}
-                                        target="_blank"
-                                        rel="noreferrer nofollow"
-                                    >
-                                        Trailer
-                                        <OpenInNewIcon className="openInNew"/>
-                                        </a>
-                                        :
-                                        <span className="trailerLink"> no trailer </span>}
+
+                                <div className="dateWrap">
+                                    <div className="releaseDate"> Release: {movie_.release_date} </div>
+                                    <div className="trailerWrap">
+                                        {trailerFound ?
+                                            <a
+                                            className="trailerLink"
+                                            href={TRAILER_START + trailerKey}
+                                            target="_blank"
+                                            rel="noreferrer nofollow"
+                                        >
+                                            Trailer
+                                            <OpenInNewIcon className="openInNew"/>
+                                            </a>
+                                            :
+                                            <span className="trailerLink"> no trailer </span>}
+                                    </div>
                                 </div>
                             </div>
-                                
-                            
+
+                            <div className="overviewModal">
+                                <h2> Overview </h2>
+                                <p> {movie_.overview} </p>
+                                <div className="genresModalWrap">
+                                    {movie_.genre_ids.map((genre, index) => {
+                                        return (
+                                            <div
+                                                className="genresModal"
+                                                key={index}>
+                                                {getGenreName(genre)}
+                                            </div>
+                                        );
+                                    })}
+                                </div>
                             </div>
-                        <div className="overviewModal">
-                            <h2> Overview </h2>
-                            <p> {movie_.overview} </p>
-                            <div className="genresModalWrap">
-                                {movie_.genre_ids.map((genre, index) => {
-                                    return (
-                                        <div
-                                            className="genresModal"
-                                            key={index}>
-                                            {getGenreName(genre)}
-                                        </div>
-                                    );
-                                })}
-                            </div>
-                        </div>
                             <ClearIcon className="modalClose" onClick={() => setModalOpen(false)} />
                         </div>
                     </div>
