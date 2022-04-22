@@ -4,9 +4,8 @@
     "\\src",
     "\\src\\components",
     "\\src\\css",
-    "\\src\\hooks",
     "\\src\\pages"
   ],
-  "SelectedNode": "\\src\\components\\Movie.js",
+  "SelectedNode": "\\src\\index.js",
   "PreviewInSolutionExplorer": false
 }

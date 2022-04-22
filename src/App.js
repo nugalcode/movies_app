@@ -34,9 +34,6 @@ function App() {
     const handleSortPopular = (e) => {
         getMoviesRequest(API_POPULAR);
     }
-    /*const handleSortLatest = (e) => {
-        getMoviesRequest(API_LATEST);
-    }*/
     const handleSortTopRated = (e) => {
         getMoviesRequest(API_TOP_RATED);
     }
@@ -73,10 +70,10 @@ function App() {
         setSearchTerm(e.target.value);
     }
 
-    // on initial render
-    /*useEffect(() => {
-        getMoviesRequest(API_POPULAR)
-    }, []);*/
+    useEffect(() => {
+        if (!searchTerm.length) return;
+        getMoviesRequest(API_SEARCH_MOVIE + searchTerm);
+    }, [searchTerm]);
     
     return (
         <div className="App">
