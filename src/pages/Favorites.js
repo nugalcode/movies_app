@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Movie from '../components/Movie';
 import '../css/Favorites.css';
 import ClearIcon from '@mui/icons-material/Clear';

@@ -1,8 +1,7 @@
 import '../css/Genres.css';
 import '../css/Home.css';
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import Movie from '../components/Movie';
-import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import { GENRES_LIST } from '../components/GenresList';
 import AddIcon from '@mui/icons-material/Add';
 import ClearIcon from '@mui/icons-material/Clear';
@@ -10,7 +9,7 @@ import ClearIcon from '@mui/icons-material/Clear';
 const genres_list = GENRES_LIST;
 const API_KEY = process.env.REACT_APP_API_KEY
 
-const API_GET_GENRES_LIST = `https://api.themoviedb.org/3/genre/movie/list?api_key=${API_KEY}&language=en-US`;
+//const API_GET_GENRES_LIST = `https://api.themoviedb.org/3/genre/movie/list?api_key=${API_KEY}&language=en-US`;
 const API_GET_MOVIE_BY_GENRE = `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=`;
 
 
@@ -48,7 +47,7 @@ const Home = ( {movies_} ) => {
     const removeSelected = (genre_id, genre_name) => {
         // remove genre from selected array state
         var newList = [];
-        newList = selected.filter((element) => element.id != genre_id);
+        newList = selected.filter((element) => element.id !== genre_id);
         setSelected(newList);
 
         // add genre into notSelected array state
@@ -72,29 +71,30 @@ const Home = ( {movies_} ) => {
 
         // remove genre from notSelected array state
         var tempList = [];
-        tempList = notSelected.filter((element) => element.id != genre_id);
+        tempList = notSelected.filter((element) => element.id !== genre_id);
         setNotSelected(tempList);
-    }
-
-    const handleGenreString = () => {
-        var tempString = "";
-        var tempList = selected;
-
-        tempList.map((genre, index) => {
-            if (tempString.length != 0) {
-                tempString = tempString + "," + genre.id;
-            }
-            else {
-                tempString = genre.id;
-            }
-        })
-        setGenresString(tempString);
     }
 
     useEffect(() => {
         getMoviesRequest(API_GET_MOVIE_BY_GENRE + genresString)
     }, [genresString]);
+
     useEffect(() => {
+        const handleGenreString = () => {
+            var tempString = "";
+            var tempList = selected;
+
+            for (let genre of tempList) {
+                if (tempString.length !== 0) {
+                    tempString = tempString + "," + genre.id;
+                }
+                else {
+                    tempString = genre.id;
+                }
+            }
+            setGenresString(tempString);
+        }
+
         handleGenreString();
     }, [selected])
 
