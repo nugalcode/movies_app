@@ -1,7 +1,5 @@
 # Movie App Personal Project 
   This project makes use of The Movie Database API to fetch movie data. The app uses the data to display the movie and its details.
-  
-  This is my second React project. My first: https://github.com/nugalcode/my_website_v1
    
 ### Features
 1) Search movie by title
